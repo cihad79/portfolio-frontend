@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function fetchProjects() {
-    fetch("/project/all")
+    fetch("https://portfoliocihadoz-1.onrender.com/project/all")
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);

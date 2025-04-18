@@ -1,7 +1,7 @@
 async function loadData() {
     try {
-        const educationRes = await fetch('http://localhost:8090/School/all');
-        const experienceRes = await fetch('http://localhost:8090/Experience/all');
+        const educationRes = await fetch('https://portfoliocihadoz-1.onrender.com/School/all');
+        const experienceRes = await fetch('https://portfoliocihadoz-1.onrender.com/Experience/all');
 
         const education = await educationRes.json();
         const experience = await experienceRes.json();
