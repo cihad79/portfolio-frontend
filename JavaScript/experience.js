@@ -1,27 +1,61 @@
-async function loadData() {
-    try {
-        const educationRes = await fetch('https://portfoliocihadoz-1.onrender.com/School/all');
-        const experienceRes = await fetch('https://portfoliocihadoz-1.onrender.com/Experience/all');
+document.addEventListener("DOMContentLoaded", function () {
+    loadData();
+});
 
-        const education = await educationRes.json();
-        const experience = await experienceRes.json();
-
-        const eduContainer = document.getElementById("education-container");
-        const expContainer = document.getElementById("experience-container");
-
-        // Education: vis som cards
-        education.forEach(item => {
-            eduContainer.innerHTML += createCard(item);
-        });
-
-        // Experience: vis som list items
-        experience.forEach(item => {
-            expContainer.innerHTML += createListItem(item);
-        });
-
-    } catch (error) {
-        console.error("Error loading data:", error);
+const education = [
+    {
+        "yearComplete": "Jan 2024",
+        "schoolName": "Datamatiker – Københavns Erhvervsakademi (KEA)",
+        "description": "GPA: 8.6 – Electives: Python, IT Operations, Machine Learning"
+    },
+    {
+        "yearComplete": "2019",
+        "schoolName": "2-Year HF – Copenhagen Private Gymnasium",
+        "description": "Final GPA: 8 (based on the Danish 12-point scale)"
     }
+];
+
+const experience = [
+    {
+        "year": "Aug 2024 – Nov 2024",
+        "title": "DevOps Intern – Motorola Solutions",
+        "description": "Further developed Jenkins pipelines by implementing agent monitoring and automating pipeline tests via external configuration files, thereby increasing efficiency and reducing errors."
+    },
+    {
+        "year": "Sep 2023 – Present",
+        "title": "Courier Partner – Wolt",
+        "description": "Strengthened interpersonal and customer service skills through regular interaction with customers during food and beverage deliveries."
+    },
+    {
+        "year": "Jan 2022 – Mar 2022",
+        "title": "Substitute Worker – Pareta Temporary Agency",
+        "description": "Demonstrated adaptability and versatility by taking on substitute roles in both educational and healthcare settings."
+    },
+    {
+        "year": "Oct 2022 – Dec 2022",
+        "title": "Crisis Management Assistant – Patient Safety Agency",
+        "description": "Gained experience in crisis management and ensured compliance with health and safety protocols."
+    },
+    {
+        "year": "Jun 2021 – Nov 2021",
+        "title": "Health & Safety Communicator – Randstad",
+        "description": "Developed strong communication skills to effectively convey safety protocols to individuals."
+    }
+];
+
+function loadData() {
+    const eduContainer = document.getElementById("education-container");
+    const expContainer = document.getElementById("experience-container");
+
+    // Education: display as cards
+    education.forEach(item => {
+        eduContainer.innerHTML += createCard(item);
+    });
+
+    // Experience: display as list items
+    experience.forEach(item => {
+        expContainer.innerHTML += createListItem(item);
+    });
 }
 
 function createCard(item) {
@@ -43,5 +77,3 @@ function createListItem(item) {
     </li>
     `;
 }
-
-loadData();
